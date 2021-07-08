@@ -23,7 +23,7 @@ public class ChangeClothing : MonoBehaviour
                 KeyDown_E();
                 break;
 
-            case "F": case "f":
+            case "R": case "r":
                 KeyDown_F();
                 break;
         }
@@ -45,7 +45,7 @@ public class ChangeClothing : MonoBehaviour
     {
         SetChildActiveFalse();
         nowCloth.transform.GetChild(2).gameObject.SetActive(true);
-        Debug.Log("F");
+        Debug.Log("R");
     }
 
     void SetChildActiveFalse()
