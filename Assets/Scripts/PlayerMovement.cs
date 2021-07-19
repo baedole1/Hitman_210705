@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     bool interActionDown;
+    bool prevInteraction;
 
     // 가까운 오브젝트 탐지용
     GameObject nearObject;
@@ -37,10 +38,17 @@ public class PlayerMovement : MonoBehaviour
     void GetInput()
     {
         interActionDown = Input.GetButtonDown("Interaction");
+        if (prevInteraction != interActionDown)
+        {
+            Debug.Log("a");
+        }
+
+        prevInteraction = interActionDown;
     }
 
     void Interaction()
     {
+        //Debug.Log("interActionDown : " + interActionDown);
         if(interActionDown && nearObject != null)
         {
             if(nearObject.CompareTag("Weapon"))
@@ -78,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
         if(other.CompareTag("Weapon"))
         {
             nearObject = other.gameObject;
-            Debug.Log(nearObject.name);
+            //Debug.Log(nearObject.name);
         }
     }
 
@@ -87,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
         if(other.CompareTag("Weapon"))
         {
             nearObject = null;
-            Debug.Log("no weapon");
+            //Debug.Log("no weapon");
 
         }
     }
