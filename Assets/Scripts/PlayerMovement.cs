@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -188,9 +187,16 @@ public class PlayerMovement : MonoBehaviour
         {
             aimCamAnim.SetBool("ZoomIn", false);
             aimCamAnim.SetBool("ZoomOut", true);
+            anim.SetBool("Aim",true);
+            if (Input.GetButtonDown("Fire"))
+            {
+                anim.SetTrigger("Attack");
+            }
         }
         else
         {
+            anim.SetBool("Aim", false);
+
             aimCamAnim.SetBool("ZoomOut", false);
             aimCamAnim.SetBool("ZoomIn", true);
         }

@@ -7,6 +7,7 @@ public class LoadMaintoPlay : MonoBehaviour
 {
     public float delayTime = 2f;
     public bool isStart = false;
+    public bool isEnd = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,16 +21,32 @@ public class LoadMaintoPlay : MonoBehaviour
             StartCoroutine(LoadMainToPlay());
         }
 
-	}
+        if (isEnd)
+        {
+            StartCoroutine(LoadEnd());
+        }
+
+    }
 
 	public void IsStartOn()
 	{
 		isStart = true;
 	}
 
-	IEnumerator LoadMainToPlay()
+    public void IsEndOn()
+    {
+        isEnd = true;
+    }
+
+    IEnumerator LoadMainToPlay()
 	{
         yield return new WaitForSeconds(delayTime);
         LoadingSceneController.LoadScene("Play");
+    }
+
+    IEnumerator LoadEnd()
+    {
+        yield return new WaitForSeconds(delayTime);
+        Application.Quit();
     }
 }

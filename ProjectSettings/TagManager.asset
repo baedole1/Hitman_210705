@@ -8,6 +8,8 @@ TagManager:
   - PlayerCloth
   - Item
   - Weapon
+  - ENEMY
+  - BULLET
   layers:
   - Default
   - TransparentFX
